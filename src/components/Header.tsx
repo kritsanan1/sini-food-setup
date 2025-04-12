@@ -1,10 +1,10 @@
-
 import { useState } from "react";
 import { ShoppingCart, Search, Menu, X, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { CartDrawer } from "./cart/CartDrawer";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -83,7 +83,7 @@ const Header = () => {
           <Button variant="outline" size="icon" aria-label="Cart">
             <ShoppingCart size={20} />
           </Button>
-          
+          <CartDrawer />
           {user ? (
             <div className="flex items-center space-x-2">
               <Button 
