@@ -1,14 +1,32 @@
 
 import { useState } from "react";
-import { ShoppingCart, Search, Menu, X } from "lucide-react";
+import { ShoppingCart, Search, Menu, X, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleAuthAction = () => {
+    if (user) {
+      // Show a profile menu or navigate to profile page
+      navigate("/profile");
+    } else {
+      navigate("/login");
+    }
+  };
+
+  const handleLogout = async () => {
+    await signOut();
+    toggleMenu(); // Close mobile menu if open
   };
 
   return (
@@ -17,7 +35,7 @@ const Header = () => {
         <div className="flex items-center">
           <a href="/" className="flex items-center space-x-2">
             <img 
-              src="/public/lovable-uploads/c7a157bc-173e-442b-81f6-e38c3107edb7.png" 
+              src="/lovable-uploads/c7a157bc-173e-442b-81f6-e38c3107edb7.png" 
               alt="Tour Der Wang Logo" 
               className="h-10 w-auto"
             />
@@ -41,21 +59,21 @@ const Header = () => {
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center space-x-8">
-          <a href="/" className="text-foreground hover:text-brand-orange font-medium transition-colors">
+          <Link to="/" className="text-foreground hover:text-brand-orange font-medium transition-colors">
             หน้าแรก
-          </a>
-          <a href="#" className="text-foreground hover:text-brand-orange font-medium transition-colors">
+          </Link>
+          <Link to="#" className="text-foreground hover:text-brand-orange font-medium transition-colors">
             เมนูอาหาร
-          </a>
-          <a href="#" className="text-foreground hover:text-brand-orange font-medium transition-colors">
+          </Link>
+          <Link to="#" className="text-foreground hover:text-brand-orange font-medium transition-colors">
             ร้านอาหาร
-          </a>
-          <a href="#" className="text-foreground hover:text-brand-orange font-medium transition-colors">
+          </Link>
+          <Link to="#" className="text-foreground hover:text-brand-orange font-medium transition-colors">
             โปรโมชั่น
-          </a>
-          <a href="#" className="text-foreground hover:text-brand-orange font-medium transition-colors">
+          </Link>
+          <Link to="#" className="text-foreground hover:text-brand-orange font-medium transition-colors">
             ติดต่อเรา
-          </a>
+          </Link>
         </nav>
 
         <div className="hidden lg:flex items-center space-x-4">
@@ -65,9 +83,33 @@ const Header = () => {
           <Button variant="outline" size="icon" aria-label="Cart">
             <ShoppingCart size={20} />
           </Button>
-          <Button className="bg-brand-orange hover:bg-brand-orange/90 text-white">
-            เข้าสู่ระบบ
-          </Button>
+          
+          {user ? (
+            <div className="flex items-center space-x-2">
+              <Button 
+                onClick={handleAuthAction}
+                className="bg-brand-orange hover:bg-brand-orange/90 text-white"
+              >
+                <User size={18} className="mr-2" />
+                โปรไฟล์
+              </Button>
+              <Button 
+                variant="outline" 
+                onClick={handleLogout}
+                className="border-brand-orange text-brand-orange hover:bg-brand-orange/10"
+              >
+                <LogOut size={18} className="mr-2" />
+                ออกจากระบบ
+              </Button>
+            </div>
+          ) : (
+            <Button 
+              onClick={handleAuthAction}
+              className="bg-brand-orange hover:bg-brand-orange/90 text-white"
+            >
+              เข้าสู่ระบบ
+            </Button>
+          )}
         </div>
       </div>
 
@@ -85,26 +127,59 @@ const Header = () => {
             </Button>
           </div>
           <nav className="flex flex-col space-y-6">
-            <a href="/" className="text-xl font-medium text-foreground hover:text-brand-orange transition-colors" onClick={toggleMenu}>
+            <Link to="/" className="text-xl font-medium text-foreground hover:text-brand-orange transition-colors" onClick={toggleMenu}>
               หน้าแรก
-            </a>
-            <a href="#" className="text-xl font-medium text-foreground hover:text-brand-orange transition-colors" onClick={toggleMenu}>
+            </Link>
+            <Link to="#" className="text-xl font-medium text-foreground hover:text-brand-orange transition-colors" onClick={toggleMenu}>
               เมนูอาหาร
-            </a>
-            <a href="#" className="text-xl font-medium text-foreground hover:text-brand-orange transition-colors" onClick={toggleMenu}>
+            </Link>
+            <Link to="#" className="text-xl font-medium text-foreground hover:text-brand-orange transition-colors" onClick={toggleMenu}>
               ร้านอาหาร
-            </a>
-            <a href="#" className="text-xl font-medium text-foreground hover:text-brand-orange transition-colors" onClick={toggleMenu}>
+            </Link>
+            <Link to="#" className="text-xl font-medium text-foreground hover:text-brand-orange transition-colors" onClick={toggleMenu}>
               โปรโมชั่น
-            </a>
-            <a href="#" className="text-xl font-medium text-foreground hover:text-brand-orange transition-colors" onClick={toggleMenu}>
+            </Link>
+            <Link to="#" className="text-xl font-medium text-foreground hover:text-brand-orange transition-colors" onClick={toggleMenu}>
               ติดต่อเรา
-            </a>
+            </Link>
             <div className="pt-6 flex flex-col space-y-4">
-              <Button className="w-full bg-brand-orange hover:bg-brand-orange/90 text-white">
-                เข้าสู่ระบบ
-              </Button>
-              <Button variant="outline" className="w-full flex items-center justify-center space-x-2">
+              {user ? (
+                <>
+                  <Button 
+                    className="w-full bg-brand-orange hover:bg-brand-orange/90 text-white"
+                    onClick={() => {
+                      handleAuthAction();
+                      toggleMenu();
+                    }}
+                  >
+                    <User size={18} className="mr-2" />
+                    โปรไฟล์
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    className="w-full border-brand-orange text-brand-orange hover:bg-brand-orange/10"
+                    onClick={handleLogout}
+                  >
+                    <LogOut size={18} className="mr-2" />
+                    ออกจากระบบ
+                  </Button>
+                </>
+              ) : (
+                <Button 
+                  className="w-full bg-brand-orange hover:bg-brand-orange/90 text-white"
+                  onClick={() => {
+                    navigate("/login");
+                    toggleMenu();
+                  }}
+                >
+                  เข้าสู่ระบบ
+                </Button>
+              )}
+              <Button 
+                variant="outline" 
+                className="w-full flex items-center justify-center space-x-2"
+                onClick={toggleMenu}
+              >
                 <ShoppingCart size={20} />
                 <span>ตะกร้าสินค้า</span>
               </Button>
