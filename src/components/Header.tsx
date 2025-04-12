@@ -65,7 +65,7 @@ const Header = () => {
           <Link to="#" className="text-foreground hover:text-brand-orange font-medium transition-colors">
             เมนูอาหาร
           </Link>
-          <Link to="#" className="text-foreground hover:text-brand-orange font-medium transition-colors">
+          <Link to="/restaurants" className="text-foreground hover:text-brand-orange font-medium transition-colors">
             ร้านอาหาร
           </Link>
           <Link to="#" className="text-foreground hover:text-brand-orange font-medium transition-colors">
@@ -133,7 +133,7 @@ const Header = () => {
             <Link to="#" className="text-xl font-medium text-foreground hover:text-brand-orange transition-colors" onClick={toggleMenu}>
               เมนูอาหาร
             </Link>
-            <Link to="#" className="text-xl font-medium text-foreground hover:text-brand-orange transition-colors" onClick={toggleMenu}>
+            <Link to="/restaurants" className="text-xl font-medium text-foreground hover:text-brand-orange transition-colors" onClick={toggleMenu}>
               ร้านอาหาร
             </Link>
             <Link to="#" className="text-xl font-medium text-foreground hover:text-brand-orange transition-colors" onClick={toggleMenu}>
