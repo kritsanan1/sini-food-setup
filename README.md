@@ -1,56 +1,73 @@
-# Sini Food Setup
+# Welcome to your Lovable project
 
-## คำอธิบาย (Description)
+## Project info
 
-Repository นี้ประกอบด้วยไฟล์และคำแนะนำที่จำเป็นสำหรับการตั้งค่าและติดตั้งโปรเจกต์ **Sini Food** [อธิบายเพิ่มเติมเกี่ยวกับโปรเจกต์ Sini Food ว่าคืออะไร เช่น ระบบสั่งอาหารออนไลน์, แพลตฟอร์มจัดการร้านอาหาร, ฯลฯ]. จุดประสงค์หลักของ Repository นี้คือ [บอกจุดประสงค์ เช่น เพื่อให้การเริ่มต้นพัฒนา Sini Food ทำได้ง่ายขึ้น, สำหรับการ deploy เบื้องต้น, สำหรับการตั้งค่า development environment].
+**URL**: https://lovable.dev/projects/6ee73142-8bc2-4a73-8659-eb6c4b2ce5d4
 
-## ข้อกำหนดเบื้องต้น (Prerequisites)
+## How can I edit this code?
 
-ก่อนที่คุณจะเริ่ม โปรดตรวจสอบให้แน่ใจว่าคุณได้ติดตั้งซอฟต์แวร์และเครื่องมือต่อไปนี้แล้ว:
+There are several ways of editing your application.
 
-* **Git:** [ลิงก์สำหรับติดตั้ง Git ถ้าต้องการ]
-* **[ชื่อเครื่องมือ/ซอฟต์แวร์ที่ 1]:** เช่น Node.js [เวอร์ชัน], Python [เวอร์ชัน], Docker [เวอร์ชัน], ฯลฯ - [ลิงก์ (ถ้ามี)]
-* **[ชื่อเครื่องมือ/ซอฟต์แวร์ที่ 2]:** [เวอร์ชัน] - [ลิงก์ (ถ้ามี)]
-* ... (เพิ่มรายการอื่นๆ ตามที่โปรเจกต์ต้องการ) ...
-* **ระบบปฏิบัติการ (ถ้าจำกัด):** เช่น Windows 10+, macOS Monterey+, Ubuntu 20.04+
+**Use Lovable**
 
-## การติดตั้ง (Installation)
+Simply visit the [Lovable Project](https://lovable.dev/projects/6ee73142-8bc2-4a73-8659-eb6c4b2ce5d4) and start prompting.
 
-ทำตามขั้นตอนเหล่านี้เพื่อตั้งค่าโปรเจกต์:
+Changes made via Lovable will be committed automatically to this repo.
 
-1.  **Clone repository:**
-    ```bash
-    git clone [https://github.com/kritsanan1/sini-food-setup.git](https://github.com/kritsanan1/sini-food-setup.git)
-    cd sini-food-setup
-    ```
+**Use your preferred IDE**
 
-2.  **[ขั้นตอนที่ 2]:** [อธิบายขั้นตอน เช่น ติดตั้ง dependencies, สร้างไฟล์ .env]
-    ```bash
-    # ตัวอย่าง: ถ้าใช้ Node.js
-    npm install
-    # ตัวอย่าง: ถ้าใช้ Python
-    pip install -r requirements.txt
-    # ตัวอย่าง: ถ้าใช้ Docker
-    docker-compose build
-    ```
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-3.  **[ขั้นตอนที่ 3]:** [อธิบายขั้นตอน เช่น ตั้งค่าฐานข้อมูล, รัน migration]
-    ```bash
-    # ตัวอย่างคำสั่ง
-    # ...
-    ```
-4.  ... (เพิ่มขั้นตอนอื่นๆ จนเสร็จสมบูรณ์) ...
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-## การใช้งาน (Usage)
+Follow these steps:
 
-หลังจากติดตั้งเสร็จสิ้น คุณสามารถรัน [Sini Food application/service] ได้โดยใช้คำสั่ง:
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
 
-```bash
-# ตัวอย่าง: รัน development server ของ Node.js
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
+
+# Step 3: Install the necessary dependencies.
+npm i
+
+# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
+```
 
-# ตัวอย่าง: รันด้วย Docker Compose
-docker-compose up -d
+**Edit a file directly in GitHub**
 
-# ตัวอย่าง: คำสั่งอื่นๆ ที่ใช้รันโปรเจกต์
-# ...
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
+
+**Use GitHub Codespaces**
+
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
+
+## What technologies are used for this project?
+
+This project is built with:
+
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
+
+## How can I deploy this project?
+
+Simply open [Lovable](https://lovable.dev/projects/6ee73142-8bc2-4a73-8659-eb6c4b2ce5d4) and click on Share -> Publish.
+
+## Can I connect a custom domain to my Lovable project?
+
+Yes it is!
+
+To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+
+Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
